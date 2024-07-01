@@ -1,0 +1,6 @@
+1. I can get the aura by getting the average value of the valence, energy and danceabilityof his/her top
+100 list, and based on the value roughly guage the audio aura the person prefers
+
+2. Instead of getting the average aura in only the top 100 songs, it would be more ideal if you can get
+the average aura of the person's playlists, as people tend to play different groups of music dependant on
+the mood they are facing currently, usually set in a group like a playlist

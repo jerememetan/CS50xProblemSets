@@ -1,0 +1,44 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Home
+{% endblock %}
+
+{% block main %}
+    {%if alert%}
+        <div class="alert alert-info" role="alert">{{alert}}</div>
+    {% endif %}
+    <h2><strong>Welcome back, {{ username }}!</strong></h2>
+    <table class="table table-hover table-striped">
+        <h3>Current Stocks</h3>
+        <thead>
+            <th>Stocks</th>
+            <th>Amount</th>
+            <th>Price</th>
+            <th>Total</th>
+        </thead>
+        <tbody>
+            {% for stock in ownedstocks %}
+                <tr>
+                    <td>{{stock.stocks}}</td>
+                    <td>{{stock.amount}}</td>
+                    <td>{{stock.price}}</td>
+                    <td>{{stock.total}}</td>
+                </tr>
+            {% endfor %}
+
+            <tr>
+                <td colspan="3">Buying Power:</td>
+                <td colspan="1" style="text-align: left">{{ funds }}
+                    <form class="inline-form" action="/addcash" method="GET">
+                        <button class="btn btn-success btn-sm ms-2" name="yes" type="submit">Add Money</button>
+                    </form>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="3">Total:</td>
+            <td colspan="1" style="text-align: left">{{value}}</td>
+            </tr>
+        </tbody>
+    </table>
+{% endblock %}

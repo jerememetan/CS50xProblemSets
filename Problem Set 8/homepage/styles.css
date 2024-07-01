@@ -1,0 +1,146 @@
+@import url('https://fonts.googleapis.com/css2?family=Barlow:wght@400;700&display=swap');
+@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css");
+
+header {
+    background-image: linear-gradient(180deg,#79a4f2, #b1dcf0);
+    margin: 0;
+    padding: 0.1vw 0vw 2.5vw 0vw;
+}
+main {
+    background-color: #b1dcf0;
+    padding: 4vw 4vw 4vw 4vw;
+    text-align: center;
+    background-image: linear-gradient(180deg,#b1dcf0, #79a4b8);
+}
+footer {
+    text-align:right;
+    padding: 8vw 3vw 2vw 3vw;
+    background-image: linear-gradient(180deg,#79a4b8, #79a4f2);
+    font-family: 'Barlow', sans-serif;
+}
+
+video {
+    height: 100%;
+    width: 100%;
+    object-fit: scale-down;
+}
+
+i {
+    height: 150%;
+    width: 150%;
+}
+
+.nav-item {
+    font-weight: 550;
+    font-size: 1rem;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 2px;
+    padding-right: 2px;
+    text-align: left;
+    font-family: 'Barlow', sans-serif;
+    position: center;
+    left: 250px;
+
+}
+.nav-item:hover {
+    background-color: #79a4f2;
+    font-weight: 850;
+    transition: color 0.02s ease-in-out, background-color 0s ease-in-out;
+}
+
+.navbar-brand {
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-align: center;
+    padding-right: 20px;
+    padding-left: 20px;
+}
+
+.d-block {
+    padding: 0rem 0rem 0rem 0rem;
+    height: 70%;
+    width: 75%;
+    alignment: center;
+    object-fit: scale-down;
+    opacity: 65%;
+    margin: auto;
+}
+.d-block:hover {
+    opacity: 100%;
+}
+.selfimage {
+    border-radius: 70%;
+    object-fit: cover;
+    height: 150px;
+    width: 150px;
+    padding: 0rem 0rem 0rem 0rem;
+
+}
+
+.badge{
+}
+.text-center
+{
+
+    padding: 0rem 2rem 0rem 2rem;
+    font-family: "Times New Roman", Times, Serif;
+}
+
+.offcanvas{
+    background-image: linear-gradient(to bottom right, #626cbf, #9dd2eb);
+}
+
+.btn {
+
+    height: auto;
+    width: auto;
+    font: small;
+    padding: 0.5rem 0.5rem 0.5rem 0.5rem;
+    margin: 0.1rem 0.1rem 0.1rem 0.1rem;
+}
+
+.welcome-text {
+    margin: 0% 0% 0% 0%;
+    height: 20%;
+    width: auto;
+    padding: 0rem 0.5rem 0rem 0.5rem;
+    border: auto;
+}
+
+
+.about-me{
+    margin: 0% 0% 0% 0%;
+    height: 20%;
+    width: 35%;
+    padding: 0rem 0.5rem 0rem 0.5rem;
+}
+
+.headertext {
+    padding: 0rem 0.5rem 0rem 0.5rem;
+    border: auto;
+}
+
+.card-title {
+    font-weight: 800;
+    font-size: 1.8rem;
+}
+
+.card {
+    background-color: #7a8783;
+    border: none;
+    margin: 5% 5% 5% 5%;
+
+}
+.card:hover {
+    background-image: linear-gradient(180deg, #9f6caf, #9dd2eb);
+    transition: color 2s ease-in-out, background-image 0.15s ease-in-out;
+    border: solid;
+    border-color: #9dd2eb;
+}
+
+.breadcrumb {
+ --breadcrumb-divider-color:          #79a4f2;
+}
+
+

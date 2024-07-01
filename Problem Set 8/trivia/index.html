@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+    <head>
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap" rel="stylesheet">
+        <link href="styles.css" rel="stylesheet">
+        <title>Trivia!</title>
+        <script>
+            document.addEventListener('DOMContentLoaded', function() {
+                let correct = document.querySelector('.correct');
+                let result1 = document.getElementById('result1');
+                let wrong = document.querySelectorAll('.wrong');
+                correct.addEventListener('click', function() {
+                    correct.style.backgroundColor = '#8dffc3';
+                    result1.innerHTML = 'Correct!';
+                    for (let i = 0; i < wrong.length; i++) {
+                        wrong[i].disabled = 'true';
+                    }
+                })
+                for (let i = 0; i < wrong.length; i++) {
+                    wrong[i].addEventListener('click', function() {
+                        wrong[i].style.backgroundColor = '#ff8d90';
+                        result1.innerHTML = 'Incorrect';
+                        wrong[i].disabled = 'true';
+                    })
+                }
+
+                document.querySelector('#submit').addEventListener('click', function() {
+                    let answer = document.querySelector('input');
+                    let result2 = document.getElementById('result2');
+                    if (answer.value === '14') {
+                        answer.style.backgroundColor = '#8dffc3';
+                        result2.innerHTML = 'Correct!';
+                    } else {
+                        answer.style.backgroundColor = '#ff8d90';
+                        result2.innerHTML = 'Incorrect';
+                    }
+                })
+            });
+        </script>
+    </head>
+
+    <body>
+        <div class="header">
+            <h1>Fun Trivia!</h1>
+        </div>
+
+        <div class="container">
+            <div class="section">
+                <h2>Part 1: Multiple Choice </h2>
+                <hr>
+                <h3>What is the legal age to drink in Singapore?</h3>
+                <div>
+                    <button class="correct" value="18">18</button>
+                    <button class="wrong" value="21">21</button>
+                    <button class="wrong" value="16">16</button>
+                </div>
+                <h4 id="result1"></h4>
+
+            </div>
+            <div class="section">
+                <h2>Part 2: Free Response</h2>
+                <hr>
+                <h3>
+                    What is (2 + 2) * 3 + 4/2?
+                </h3>
+                <input type="number" autocomplete="false" id='response1'></input>
+                <button id="submit">Submit</button>
+                <h4 id="result2"></h4>
+            </div>
+        </div>
+    </body>
+
+</html>

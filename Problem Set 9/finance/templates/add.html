@@ -1,0 +1,14 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Home
+{% endblock %}
+
+{% block main %}
+    <h2><strong>Your Current Cash: ${{currentcash}}</strong></h2>
+    <form class="inline-form" action="/addcash" method="POST">
+        <input name="number" type="number" step="0.01" placeholder="Cash" autocomplete="false">
+        <button class="btn btn-success btn-sm" name="yes" type="submit">Add Money</button>
+    </form>
+    </table>
+{% endblock %}

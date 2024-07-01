@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js" integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy" crossorigin="anonymous"></script>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+        <link href="styles.css" rel="stylesheet">
+        <title>Homepage </title>
+        <script src="indexscripts.js">
+        </script>
+    </head>
+
+    <body>
+        <header>
+            <nav class="navbar navbar-expand-lg">
+                <div class="container-fluid">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item active headertext" aria-current="page">Home</li>
+                        <li class="breadcrumb-item headertext"><a href="Entertainment.html" class="link-dark">Entertainment</a></li>
+                        <li class="breadcrumb-item headertext"><a href="Portfolio.html" class="link-dark">Portfolio</a></li>
+                        <li class="breadcrumb-item headertext"><a href="MoreInfo.html" class="link-dark">More Info</a></li>
+                    </ol>
+                    <ul class="navbar-nav me-right mb-6 mb-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link" href="https://www.instagram.com/yrppsmoll/?hl=en" target="_blank"><i class="bi bi-instagram"></i></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="https://github.com/jerememetan" target="_blank"><i class="bi bi-github"></i></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="https://www.linkedin.com/in/jereme-tan-0878b0211/" target="_blank"><i class="bi bi-linkedin"></i></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="mailto:jerememetanjm@gmail.com" target="_blank"><i class="bi bi-envelope-plus"></i></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="https://www.youtube.com/channel/UC6ChxvJ9PKC7qMLGRqisKIg" target="_blank"><i class="bi bi-youtube"></i></a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </header>
+        <main>
+            <div class="headertext text-center ">
+                <h1 class="welcome-text text-center">
+                    <span>Welcome to my website!</span>
+                    <img src="me.jpg" class="selfimage" alt="selfimage">
+                </h1>
+                <div class="card mb-3" style="max-width: 54vw;  ">
+                    <div class="row g-0">
+                        <div class="col-md-4">
+                            <img src="Japanpic.jpg" style="object-fit: scale-down;" class="img-fluid" alt="ImageOfMe">
+                        </div>
+                        <div class="col-md-8 ">
+                            <div class="card-body">
+                                <h5 class="card-title">About me</h5>
+                                <p class="card-text h5">My name is Jereme Tan and im <span class="card-text h4" id="AGE"></span> this year! I'm from Singapore and
+                                    I'm this is my CS50 project</p>
+                                <p class="card-text h5">I enjoy playing strategy games and learning new skills in my free time!</p>
+                                <p class="card-text h5">I also enjoy travelling and exploring new places when I get the oppurtunity to do so! </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card mb-3" style="max-width: 54vw; margin: 5% 8% 5% 30%; ">
+                <div class="row g-3">
+                    <div class="col-md-4">
+                        <p class="card-title">Game Development </p>
+                        <p class="card-text text-center h5">I have experience in making my own Pokemon Rom Hacks too! This Rom hack here is an
+                            guanlet-style pokemon hack based of on Pokemon Emerald, with inclusions of pokemon up to the latest generation.
+                        </p>
+                    </div>
+                    <div class="col-md-8 ">
+                        <div class="card-body">
+                            <video src="Z-move-Clip.mp4" loop muted autoplay> </video>
+                            <video src="Mega-Evo-Clip.mp4" loop muted autoplay> </video>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="artworks">
+                <h3 class="card-title text-center navbar-brand"> Digital Art</h3>
+
+                <div id="carousel" class="carousel slide" data-bs-ride="carousel">
+                    <div class="carousel-indicators">
+                        <button type="button" data-bs-target="#carousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                        <button type="button" data-bs-target="#carousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                        <button type="button" data-bs-target="#carousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                        <button type="button" data-bs-target="#carousel" data-bs-slide-to="3" aria-label="Slide 4"></button>
+                        <button type="button" data-bs-target="#carousel" data-bs-slide-to="4" aria-label="Slide 5"></button>
+                    </div>
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
+                            <img src="ross3.jpg" class="d-block" alt="Art1">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="ross4.jpg" class="d-block" alt="Art2">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="ross6.jpg" class="d-block" alt="Art3">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="ross7.png" class="d-block" alt="Art4">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="ross8.png" class="d-block" alt="Art5">
+                        </div>
+                        <button class="carousel-control-prev" type="button" data-bs-target="#carousel" data-bs-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="false"></span>
+                            <span class="visually-hidden">Previous</span>
+                        </button>
+                        <button class="carousel-control-next" type="button" data-bs-target="#carousel" data-bs-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="false"></span>
+                            <span class="visually-hidden">Next</span>
+                        </button>
+                    </div>
+                </div>
+                <div>
+                    <p></p>
+                </div>
+            </div>
+        </main>
+
+        <footer>
+            Copyright &#169; by Jereme Tan
+        </footer>
+
+    </body>
+
+</html>

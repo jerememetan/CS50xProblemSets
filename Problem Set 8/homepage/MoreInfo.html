@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js" integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy" crossorigin="anonymous"></script>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+        <link href="styles.css" rel="stylesheet">
+        <title>More info</title>
+        <script src="moreinfo.js"></script>
+    </head>
+
+    <body>
+        <header>
+
+            <nav class="navbar navbar-expand-lg">
+                <div class="container-fluid">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item headertext"><a href="index.html" class="link-dark">Home</a></li>
+                        <li class="breadcrumb-item headertext"><a href="Entertainment.html" class="link-dark">Entertainment</a></li>
+                        <li class="breadcrumb-item headertext"><a href="Portfolio" class="link-dark">Portfolio</a></li>
+                        <li class="breadcrumb-item active headertext" aria-current="page">More Info</li>
+                    </ol>
+                    <ul class="navbar-nav me-right mb-6 mb-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link" href="https://www.instagram.com/yrppsmoll/?hl=en" target="_blank"><i class="bi bi-instagram"></i></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="https://github.com/jerememetan" target="_blank"><i class="bi bi-github"></i></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="https://www.linkedin.com/in/jereme-tan-0878b0211/" target="_blank"><i class="bi bi-linkedin"></i></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="mailto:jerememetanjm@gmail.com" target="_blank"><i class="bi bi-envelope-plus"></i></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="https://www.youtube.com/channel/UC6ChxvJ9PKC7qMLGRqisKIg" target="_blank"><i class="bi bi-youtube"></i></a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </header>
+        <main>
+            <h2><strong class="text-center">Useful Links</strong></h2>
+            <table class="table table-primary table-hover text-center h5" style=" text-align: center;">
+                <tr class="table table-info ">
+                    <td><strong>Code Assistance</strong></td>
+                </tr>
+                <tr>
+                    <td><a class="nav-link" href="https://chatgpt.com" target="_blank">ChatGPT <i class="bi bi-robot"></i></a></td>
+                </tr>
+                <tr>
+                    <td><a class="nav-link" href="https://getbootstrap.com/docs/5.2/getting-started/introduction/" target="_blank">Bootstrap Documents <i class="bi bi-bootstrap-fill"></i></a></td>
+                </tr>
+                <tr>
+                    <td><a class="nav-link" href="https://icons.getbootstrap.com" target="_blank">Bootstrap icons <i class="bi bi-bootstrap"></i></a></td>
+                </tr>
+                <tr>
+                    <td><a class="nav-link" href="https://cs50.harvard.edu/x/2024/" target="_blank">Harvard's CS50 Course <i class="bi bi-journal-text"></i></a></td>
+
+                </tr>
+                <tr>
+                    <td><a class="nav-link" href="https://leetcode.com" target="_blank">Leetcode <i class="bi bi-code-square"></i></a></td>
+
+                </tr>
+                <tr>
+                    <td><a class="nav-link" href="https://stackoverflow.com" target="_blank">StackOverflow <i class="bi bi-stack-overflow"></i></a></td>
+                </tr>
+            </table>
+            <h3><strong class="text-center">Random Spotify Playlist Finder</strong></h3>
+
+            <table class="table table-primary table-hover text-center ">
+                <tr class="table table-info h5">
+                    <td><strong>Genre</strong></td>
+                    <td><strong>Click!</strong></td>
+                </tr>
+                <tr>
+                    <td><strong>English</strong></td>
+                    <td><a class="nav-link" href="#" target="_blank" onclick="randomsiteEnglish();"><i class="bi bi-shuffle"></i></a></td>
+                </tr>
+                <tr>
+                    <td><strong>Study</strong></td>
+                    <td><a class="nav-link" href="#" onclick="randomsiteStudy();"><i class="bi bi-shuffle"></i></a></td>
+                </tr>
+                <tr>
+                    <td><strong>Japanese</strong></td>
+                    <td><a class="nav-link" href="#" onclick="randomsiteJapanese();"><i class="bi bi-shuffle"></i></a></td>
+                </tr>
+                <tr>
+                    <td><strong>Chinese</strong></td>
+                    <td><a class="nav-link" href="#" onclick="randomsiteChinese();"><i class="bi bi-shuffle"></i></a></td>
+                </tr>
+                <tr>
+                    <td><strong>Completely Random</strong></td>
+                    <td><a class="nav-link" href="#" onclick="randomsiteAll();"><i class="bi bi-shuffle"></i></a></td>
+                </tr>
+            </table>
+
+            <table class="table table-primary table-hover text-center ">
+                <tr class="table table-info h5">
+                    <td><strong>Google Search</strong></td>
+                </tr>
+                <tr>
+                    <td>
+                        <form action="https://www.google.com/search" method="get">
+                            <input class="btn btn-outline-dark" name="query" type="search" autocomplete="false">
+                            <input class="btn btn-outline-info" type="submit" value="Search">
+                        </form>
+                    </td>
+                </tr>
+            </table>
+        </main>
+        <footer>
+            Copyright &#169; by Jereme Tan
+        </footer>
+    </body>
+
+</html>

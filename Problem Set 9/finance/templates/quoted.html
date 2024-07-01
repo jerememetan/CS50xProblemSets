@@ -1,0 +1,21 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Found
+{% endblock %}
+
+{% block main %}
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Symbol</th>
+                <th>Current Price</th>
+            </tr>
+        </thead>
+        <tbody>
+            <td>{{quote["symbol"]}}</td>
+            <td>{{quote["price"]}}</td>
+        </tbody>
+    </table>
+    <h3>{{quote["symbol"]}} is priced at {{ price }}</h3>
+{% endblock %}

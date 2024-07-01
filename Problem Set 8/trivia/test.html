@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <meta name ="viewport" content="initial-scale=1 , width=device-width">
+        <style>
+            header
+            {
+                text-align: center;
+            }
+            .small
+            {
+                font-size: small;
+            }
+        </style>
+        <title>
+            Browser Title
+        </title>
+        <script>
+            document.addEventListener('DOMContentLoaded', function() {
+            var currenttime = new Date();
+            var y = currenttime.getFullYear();
+            var age = y - 2002;
+            document.getElementById("AGE").innerHTML = age;})
+        </script>
+
+    </head>
+    <header>
+        <h1 outline-style="dotted">
+            This is <span id="AGE"></span> and outline dotted
+        </h1>
+        <h2>
+            This is H2
+        </h2>
+        <h3>
+            This is H3
+        </h3>
+        <h4>
+            This is H4
+        </h4>
+        <h5>
+            This is H5
+        </h5>
+        <h6>
+            This is H6
+        </h6>
+    </header>
+    <ol>
+        <li >
+            This is an ordered List
+        </li>
+        <li>
+            Number 2!
+        </li>
+    </ol>
+    <table>
+        <tr>
+            <td> Table data in table row A</td>
+            <td> Table data in table row 1</td>
+        </tr>
+        <tr>
+            <td> Table data in table row B</td>
+            <td> Table data in table row 2</td>
+        </tr>
+        <tr>
+            <td> Table data in table row C</td>
+            <td> Table data in table row 3</td>
+        </tr>
+        <div>
+            <h3>
+                Go to <a href="https://www.youtube.com/"> Youtube </a>
+            </h3>
+        </div>
+        <form action="https://www.google.com/search" method="get">
+            <input name="q" type="search" autofocus autocomplete="false">
+            <input type="submit" value="Google Search">
+        </form>
+    </table>
+    <button onclick="myFunc()" id = "button">
+        Click here
+    </button>
+    <script>
+        let result = document.getElementById("button");
+
+        function changeColor(color) {
+            document.button.style.background = color;
+        }
+
+        function myFunc() {
+            changeColor('yellow');
+            result.innerHTML = "Background Color changed";
+        }
+</html>
