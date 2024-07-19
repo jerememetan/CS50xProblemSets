@@ -1,0 +1,34 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Edit Booking
+{% endblock %}
+
+{% block main %}
+
+<div class="mb-3 h3"> Edit Booking</div>
+<table class= "table">
+    <tr>
+        <td>Date</td>
+        <td>{{ bookings.date }}</td>
+    </tr>
+    <tr>
+        <td>Start Time</td>
+        <td>{{ bookings.start_time }}</td>
+    </tr>
+    <tr>
+        <td>End Time</td>
+        <td>{{ bookings.end_time }}</td>
+    </tr>
+    <tr>
+        <td>Contact</td>
+        <td>{{ bookings.contact }}</td>
+    </tr>
+    <tr>
+        <td>Type</td>
+        <td>{{ bookings.type }}</td>
+    </tr>
+</table>
+</form>
+
+{% endblock %}

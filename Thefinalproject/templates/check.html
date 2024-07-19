@@ -1,0 +1,70 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Check Avalibilty
+{% endblock %}
+
+{% block main %}
+
+<div class="mb-3 h2 "> Check Avalibility</div>
+<div class="mb-3 h4 ">How it works</div>
+<p style="width: 75%" class="mx-auto"><small>Enter your desired date and time for the appointment, and this tool will check if any other bookings are already scheduled for that time.</small></p>
+<form action="/check" method="post">
+    <div class="row mb-3 input-group">
+        <div>Date</div>
+            <input type="date" class="custom-input mx-auto" style="width: 45%" name="date">
+        </div>
+    <div class="row">
+        <div class="col-6">
+            <div>Start Time</div>
+            <select class="form-select-sm mb-3 custom-input" name="start_time">
+                <option selected disabled>Start time</option>
+                {% for option in options %}
+                <option value="{{option}}">{{option}}</option>
+                {% endfor %}
+              </select>
+        </div>
+        <div class="col-6">
+            <div>End Time</div>
+            <select class="form-select-sm mb-3 custom-input" name="end_time">
+                <option selected disabled>End time</option>
+                {% for option in options %}
+                <option value="{{option}}">{{option}}</option>
+                {% endfor %}
+              </select>
+        </div>
+    </div>
+    {%if error %}
+    <div class="alert alert-danger mb-0 mx-auto mb-2" style="width: 40%" role="alert">{{error}}</div>
+    {% endif %}
+    {% if success %}
+    <div class="alert alert-success mb-0 mx-auto mb-2" style="width: 40%" role="alert">{{success}}</div>
+    {% endif %}
+    <div>
+        <button class="btn btn-info mb-4" type="submit">Check</button>
+    </div>
+</form>
+{% if clash %}
+<div class="h3">Overlapped Timings</div>
+<table class="table">
+    <theader>
+        <th>Date</th>
+        <th>Timing</th>
+        <th>Contact</th>
+        <th>Info</th>
+    </theader>
+    <tbody>
+        {% for c in clash %}
+        <tr>
+            <td>{{c.date}}</td>
+            <td>{{c.start_time}} - {{c.end_time}}</td>
+            <td>{{c.contact}}</td>
+            <td>{{c.type}}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endif %}
+
+
+{% endblock %}

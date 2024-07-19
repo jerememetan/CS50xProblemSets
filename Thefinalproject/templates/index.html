@@ -1,0 +1,317 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Home - {{username}}
+{% endblock %}
+
+{% block main %}
+    <script src="//cdn.jsdelivr.net/npm/mutationobserver-shim/dist/mutationobserver.min.js"></script>
+    <script src="/static/index.js"></script>
+
+    {%if feedback%}
+        <div class="alert alert-info" role="alert">{{feedback}}</div>
+    {% endif %}
+
+    <p class="h3 display-4">Hello, {{username}}!</p>
+
+{% if userbookings %}
+    <div class = "d-flex justify-content-end me-3 mb-5">
+        <div class="btn-group" role="group">
+            <input type="radio" class="btn-check"  name="btnradio" id="seperated_bookings_btn" autocomplete="off">
+            <label class="btn btn-outline-primary" for="seperated_bookings_btn">Seperated Bookings</label>
+
+            <input type="radio" class="btn-check"  name="btnradio" id="joint_bookings_btn" autocomplete="off">
+            <label class="btn btn-outline-primary" for="joint_bookings_btn">Joint Bookings</label>
+
+          </div>
+    </div>
+
+
+
+    <div id="seperated_table">
+            {% if today_bookings %}
+        <p class="h3 display-6">Today's Bookings</p>
+            <table class="table table-info">
+                <thead>
+                    <tr>
+                        <th style="width:7%" data-sortable="true">
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div class="flex-grow-1 justify-content-center">
+                                    Date
+                                </div>
+                            </div>
+                        </th>
+                        <th style="width:8%" data-sortable="true">Timing</th>
+                        <th style="width:10%" data-sortable="true">Contact</th>
+                        <th style="width:22%" data-sortable="true">Additional Info</th>
+                        <th colspan="2" style="width:15%">
+                            <form action="/delete" method="post">
+                                <input type="hidden" id="delete_id" name="today_delete">
+                                <button class="btn btn-danger btn-sm" style ="width: 65%"  type="submit">Delete ALL</button>
+                            </form>
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for bookings in today_bookings %}
+                        <tr>
+                            <td>{{bookings.date}}</td>
+                            <td>{{bookings.start_time}} - {{bookings.end_time}}</td>
+                            <td>{{bookings.contact}}</td>
+                            <td>{{bookings.type}}</td>
+                            <td>
+                                <!-- <button class="btn btn-secondary btn-sm" type="button" id="{{bookings.id}}"
+                                name="{{bookings.id}}" data-bs-toggle="modal" data-bs-target="#Modal"
+                                date="{{bookings.date}}" start_time="{{bookings.start_time}}"
+                                end_time="{{bookings.end_time}}" contact="{{bookings.contact}}"
+                                detail="{{bookings.type}}">Edit Booking
+                                </button> -->
+                            </td>
+                            <td>
+                                <form action="/delete" method="post">
+                                    <input type="hidden" id="delete_id" name="delete_id">
+                                    <button class="btn btn-danger btn-sm" id="delete_button" value ="{{bookings.id}}" type="submit">Delete Booking</button>
+                                </form>
+                            </td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        {% endif %}
+
+        {% if upcoming_bookings %}
+        <p class="h3 display-6">Upcoming Bookings</p>
+            <table class="table table-info">
+                <thead>
+                    <tr>
+                        <th style="width:7%">Date</th>
+                        <th style="width:8%">Timing</th>
+                        <th style="width:10%">Contact</th>
+                        <th style="width:22%">Additional Info</th>
+                        <th colspan="2" style="width:15%">
+                            <form action="/delete" method="post">
+                                <input type="hidden" id="delete_id" name="upcoming_delete">
+                                <button class="btn btn-danger btn-sm" style ="width: 65%"  type="submit">Delete ALL</button>
+                            </form>
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for bookings in upcoming_bookings %}
+                        <tr>
+                            <td>{{bookings.date}}</td>
+                            <td>{{bookings.start_time}} - {{bookings.end_time}}</td>
+                            <td>{{bookings.contact}}</td>
+                            <td>{{bookings.type}}</td>
+                            <td>
+                                <!-- <button class="btn btn-secondary btn-sm" type="button" id="{{bookings.id}}"
+                                name="{{bookings.id}}" data-bs-toggle="modal" data-bs-target="#Modal"
+                                date="{{bookings.date}}" start_time="{{bookings.start_time}}"
+                                end_time="{{bookings.end_time}}" contact="{{bookings.contact}}"
+                                detail="{{bookings.type}}">Edit Booking
+                                </button> -->
+                            </td>
+                            <td>
+                                <form action="/delete" method="post">
+                                    <input type="hidden" id="delete_id" name="delete_id">
+                                    <button class="btn btn-danger btn-sm" id="delete_button" value ="{{bookings.id}}" type="submit">Delete Booking</button>
+                                </form>
+                            </td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        {% endif %}
+
+        {% if previous_bookings %}
+        <p class="h3 display-6">Past Bookings</p>
+        <table class="table table-info">
+            <thead>
+                <tr>
+                    <th style="width:7%">Date</th>
+                    <th style="width:8%">Timing</th>
+                    <th style="width:10%">Contact</th>
+                    <th style="width:22%">Additional Info</th>
+                    <th colspan="2" style="width:15%">
+                        <form action="/delete" method="post">
+                            <input type="hidden" id="delete_id" name="previous_delete">
+                            <button class="btn btn-danger btn-sm" style ="width: 65%" type="submit">Delete ALL</button>
+                        </form>
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for bookings in previous_bookings %}
+                    <tr>
+                        <td>{{bookings.date}}</td>
+                        <td>{{bookings.start_time}} - {{bookings.end_time}}</td>
+                        <td>{{bookings.contact}}</td>
+                        <td>{{bookings.type}}</td>
+                        <td>
+                            <!-- <button class="btn btn-secondary btn-sm" type="button" id="{{bookings.id}}"
+                            name="{{bookings.id}}" data-bs-toggle="modal" data-bs-target="#Modal"
+                            date="{{bookings.date}}" start_time="{{bookings.start_time}}"
+                            end_time="{{bookings.end_time}}" contact="{{bookings.contact}}"
+                            detail="{{bookings.type}}">Edit Booking
+                            </button> -->
+                        </td>
+                        <td>
+                            <form action="/delete" method="post">
+                                <input type="hidden" id="delete_id" name="delete_id">
+                                <button class="btn btn-danger btn-sm" id="delete_button" value ="{{bookings.id}}" type="submit">Delete Booking</button>
+                            </form>
+                        </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        {% endif %}
+    </div>
+
+    <div id="joint_table">
+            <p class="h3 display-6">Your Bookings</p>
+        <table class="table table-info">
+            <theader>
+                <th style="width:7%">Date</th>
+                <th style="width:8%">Timing</th>
+                <th style="width:10%">Contact</th>
+                <th style="width:22%">Additional Info</th>
+                <th colspan="2" style="width:15%">
+                    <form action="/delete" method="post">
+                        <input type="hidden" id="delete_id" name="delete_all" >
+                        <button class="btn btn-danger btn-sm" id="delete_button" style ="width: 65%" type="submit">Delete ALL</button>
+                    </form>
+                </th>
+            </theader>
+            <tbody>
+                {% for bookings in userbookings %}
+                    <tr>
+                        <td>{{bookings.date}}</td>
+                        <td>{{bookings.start_time}} - {{bookings.end_time}}</td>
+                        <td>{{bookings.contact}}</td>
+                        <td>{{bookings.type}}</td>
+                        <td>
+                            <button class="btn btn-secondary btn-sm" type="button" id="{{bookings.id}}"
+                            name="{{bookings.id}}" data-bs-toggle="modal" data-bs-target="#Modal"
+                            date="{{bookings.date}}" start_time="{{bookings.start_time}}"
+                            end_time="{{bookings.end_time}}" contact="{{bookings.contact}}"
+                            detail="{{bookings.type}}">Edit Booking
+                            </button>
+                        </td>
+                        <td>
+                            <form action="/delete" method="post">
+                                <input type="hidden" id="delete_id" name="delete_id" value ="{{bookings.id}}">
+                                <button class="btn btn-danger btn-sm" id="delete_button" value ="{{bookings.id}}" type="submit">Delete Booking</button>
+                            </form>
+                        </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </form>
+        </table>
+    </div>
+
+{% else %}
+    <h1 class="h2">Welcome to my website!</h1>
+    <h1 class="h5">This website allows you create your own schedules, go ahead and try it!</h1>
+    <div class="row">
+        <div class="col-sm-6 mb-3 mx-auto">
+            <div class="card text-bg-info mb-2">
+                <div class="card-body">
+                    <h3 class="card-title"><strong>Creating a Booking</strong></h3>
+                    <h6 class="card-subtitle text-body-secondary">How does it work?</h6>
+                    <p class="card-text text-center mb-3">You can create an appointment by going to the "Make Appointment" tab at the top,
+                        and selecting the date and time and other additional info if needed.
+                        Alternatively, you can click this button down here.
+
+                    </p>
+                    <form action="/book" method="get">
+                        <button class="btn btn-primary">Make Appointment</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-6 mx-auto">
+            <div class="card text-bg-info mb-2">
+                <div class="card-body">
+                    <h3 class="card-title"><strong>Tags</strong></h3>
+                    <h6 class="card-subtitle text-body-secondary">How does tag works?</h6>
+                    <p class="card-text">Tags can be created and edited by the user to be used to identify a booking easily.
+                        Find out more info in the "Create Tags" tab. Alternatively, you can click the button below down here.
+                    </p>
+                    <form action="/tags" method="get">
+                        <button class="btn btn-primary">Create Tags</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <h6><small>You currently have no schedules made. <i class="bi bi-emoji-frown"></i></small> </h6>
+    <img class="img-fluid mx-auto rounded" src="static/no.gif" alt="gif" width="15%">
+
+
+
+{% endif %}
+
+
+
+
+
+
+
+
+
+
+    <div class="modal fade" id="Modal" tabindex="-1" aria-labelledby="ModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="ModalLabel">Change Booking</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form action="/edit" method="post">
+                        <input type="date" class="custom-input date" name="date" id="date">
+
+                        <div class="row">
+                            <div class="col-6">
+                                <div>Start Time</div>
+                                <select class="form-select-sm mb-3 custom-input" name="start_time">
+                                    <option disabled>Start time</option>
+                                    {% for option in options %}
+                                        <option id="start-{{option}}" value="{{option}}">{{option}}</option>
+                                    {% endfor %}
+                                </select>
+                            </div>
+                            <div class="col-6">
+                                <div>End Time</div>
+                                <select class="form-select-sm mb-3 custom-input" name="end_time">
+                                    <option disabled>End time</option>
+                                    {% for option in options %}
+                                        <option id="end-{{option}}" value="{{option}}">{{option}}</option>
+                                    {% endfor %}
+                                </select>
+                            </div>
+                        </div>
+                        <input id="details" type="text" name="details" class="form-control details custom-input" aria-label="Comments" placeholder="Details (if any)"></input>
+                        <input id="number" type="number" name="contact" class="form-control contact mb-3 custom-input" aria-label="Comments" placeholder="Contact No. (if any)"></input>
+                        <input type="hidden" id="booking_id" name="booking_id">
+                        <div class="mb-3 h2">Edit Tags</div>
+                        <div class="btn-group mb-4 d-flex flex-wrap" role="group" aria-label="Basic checkbox toggle button group">
+                            {% for tag in tags %}
+                            <input type="checkbox" class="btn-check" name="tag{{tag.tag_name}}" id="{{tag.tag_name}}" autocomplete="off">
+                            <label class="btn btn-outline-primary" for="{{tag.tag_name}}">{{tag.tag_name}}</label>
+                            {% endfor %}
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <button type="submit" id="confirmation" class="btn btn-primary">Edit Booking</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+{% endblock %}

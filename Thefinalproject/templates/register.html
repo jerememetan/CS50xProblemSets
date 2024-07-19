@@ -1,0 +1,28 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Register
+{% endblock %}
+
+{% block main %}
+
+<script src="/static/register.js"></script>
+    <form action="/register" method="post">
+        <div class="mb-3">
+            <input autocomplete="off" autofocus class="form-control mx-auto w-auto custom-input" name="username" placeholder="Username" type="text">
+
+        </div>
+        <div class="mb-1">
+            <input class="form-control mx-auto w-auto custom-input" oninput="checkpassword()" name="password" pattern=".{8,}" placeholder="Password" type="password">
+            <div class="feedback" id="infotext"><small><i class="bi bi-info-circle-fill"></i> Password must be at least 8 characters</small></div>
+        </div>
+        </div>
+        <div class="mb-3">
+            <input class="form-control mx-auto w-auto custom-input" oninput="checkpassword()" name="cfmpassword" placeholder="Password (again)" type="password">
+            <div class="feedback" style="color: red" id ="error"><small>{{errormessage1}}</small></div>
+        </div>
+
+        <button class="btn btn-primary" type="submit">Register</button>
+    </form>
+
+{% endblock %}

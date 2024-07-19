@@ -1,0 +1,81 @@
+/* Size for brand */
+nav .navbar-brand
+{
+    font-size: xx-large;
+}
+
+/* Colors for brand */
+nav .navbar-brand .blue
+{
+    color: #537fbe;
+}
+nav .navbar-brand .red
+{
+    color: #ea433b;
+}
+nav .navbar-brand .yellow
+{
+    color: #f5b82e;
+}
+nav .navbar-brand .green
+{
+    color: #2e944b;
+}
+.navbar-toggler
+{
+    border: none;
+    background-color: #6f7782;
+}
+.navbar-toggler-icon
+{
+    color: red;
+}
+.custom-input {
+    border: none;
+    padding: 10px;
+    translate: translate(-50%, -50%);
+    font-size: 16px;
+    background-color: #90b6d6;
+    box-sizing: border-box;
+}
+
+.custom-input:focus {
+    outline: none;
+    border: 1px solid #9fabb5;
+    background-color: #a1d0f7;
+
+}
+
+.custom-input::placeholder {
+    color: #99a8ba;
+}
+.password-toggle-icon {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    color: #4c5359;
+    background-color: red;
+}
+
+.password-toggle-icon:hover {
+    color: #531;
+}
+
+.form-control::placeholder {
+    color: none;
+}
+
+.modal-content {
+    background-image: linear-gradient(to top, #f0f3f7, #9ba0bf);
+
+}
+
+.modal-header, .modal-footer {
+    border: none;
+}
+
+.btn-close {
+    background-color: #8c8dad;cd
+}

@@ -1,0 +1,58 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Make Appointment
+{% endblock %}
+
+{% block main %}
+<script src="book.js"></script>
+<div class="mb-3 h3 "> Create an Appointment</div>
+<form action="/book" method="post" >
+    <div class="row mb-3">
+        <div>Date</div>
+        <input type="date" class="custom-input mx-auto" style="width: 45%" name="date">
+    </div>
+    <div class="row">
+        <div class="col-6">
+            <div>Start Time</div>
+            <select class="form-select-sm mb-3 custom-input" name="start_time">
+                <option selected disabled>Start time</option>
+                {% for option in options %}
+                <option value="{{option}}">{{option}}</option>
+                {% endfor %}
+              </select>
+        </div>
+        <div class="col-6">
+            <div>End Time</div>
+            <select class="form-select-sm mb-3 custom-input" name="end_time">
+                <option selected disabled>End time</option>
+                {% for option in options %}
+                <option value="{{option}}">{{option}}</option>
+                {% endfor %}
+              </select>
+        </div>
+        {% if tags %}
+            <div class="h4 form-group mx-auto">Select Tags</div>
+            <div class="btn-group mb-4 mx-auto d-flex flex-wrap" role="group" style="width: 60%">
+                {% for tag in tags %}
+                <input type="checkbox" value="{{tag.tag_name}}" class="btn-check" name="tag{{tag.id}}" id="{{tag.id}}" autocomplete="off">
+                <label class="btn btn-outline-primary" for="{{tag.id}}">{{tag.tag_name}}</label>
+                {% endfor %}
+            </div>
+        {% endif %}
+    </div>
+    <div class="input-group mb-3 mx-auto" style="width: 75%">
+        <span class="input-group-text" style="background-color: #2f6aa8; font-weight: bold; border: none;">Additional Info</span>
+        <input type="text" name="details" class="custom-input form-control"  placeholder="Details (if any)"></input>
+        <input type="number" name="contact" class="custom-input form-control" placeholder="Contact No. (if any)"></input>
+    </div>
+    <div>{{error}}</div>
+    <div>
+        <button class="btn btn-info" type="submit">Make Appointment</button>
+    </div>
+</form>
+
+
+
+
+{% endblock %}

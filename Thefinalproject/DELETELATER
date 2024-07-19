@@ -1,0 +1,80 @@
+TABLE users (id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,
+             username TEXT NOT NULL,
+            hash TEXT NOT NULL);
+
+*note start_time and end_time are numeric (eg.1600) for 1600 hrs
+CREATE TABLE bookings (id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,
+                users_id INTEGER NOT NULL,
+                date TEXT NOT NULL,
+                start_time TEXT NOT NULL,
+                end_time TEXT NOT NULL,
+                contact TEXT,
+                type TEXT,
+                FOREIGN KEY(users_id) REFERENCES users(id)
+                )
+
+*Tags are unqiue to every single person
+CREATE TABLE usertags (id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,
+                       users_id INTEGER NOT NULL,
+                       tag_name TEXT NOT NULL,
+                       FOREIGN KEY(users_id) REFERENCES users(id)
+                        );
+
+*Bookings can have mutiple tags, and one tag can have mutiple bookings
+
+CREATE TABLE bookings_tags (id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,
+                            bookings_id INTEGER NOT NULL,
+                            usertags_id INTEGER NOT NULL,
+                            FOREIGN KEY(bookings_id) REFERENCES bookings(id),
+                            FOREIGN KEY (usertags_id) REFERENCES usertags(id));
+
+CREATE TABLE bookingtags
+
+
+</div>
+    {% if userbookings %}
+    <p class="h3 display-6">Your Bookings</p>
+    <table class="table table-info">
+        <theader>
+            <th style="width:7%">Date</th>
+            <th style="width:8%">Timing</th>
+            <th style="width:10%">Contact</th>
+            <th style="width:22%">Additional Info</th>
+            <th style="width:7%"></th>
+            <th style="width:7%"></th>
+        </theader>
+        <tbody>
+            {% for bookings in userbookings %}
+                <tr>
+                    <td>{{bookings.date}}</td>
+                    <td>{{bookings.start_time}} - {{bookings.end_time}}</td>
+                    <td>{{bookings.contact}}</td>
+                    <td>{{bookings.type}}</td>
+                    <td>
+                        <button class="btn btn-secondary btn-sm" type="button" id="{{bookings.id}}"
+                         name="{{bookings.id}}" data-bs-toggle="modal" data-bs-target="#Modal"
+                         date="{{bookings.date}}" start_time="{{bookings.start_time}}"
+                         end_time="{{bookings.end_time}}" contact="{{bookings.contact}}"
+                         detail="{{bookings.type}}">Edit Booking
+                        </button>
+                    </td>
+                    <td>
+                        <form action="/delete" method="post">
+                            <input type="hidden" id="delete_id" name="delete_id">
+                            <button class="btn btn-danger btn-sm" id="delete_button" value ="{{bookings.id}}" type="submit">Delete Booking</button>
+                        </form>
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </form>
+    </table>
+    {% else %}
+    <div class="col">
+        <img class="img-fluid mx-auto rounded" src="static/no.gif" alt="gif" width="15%">
+        <p class="h3 display-6 mb-3">You currently have no Appointments.</p>
+        <form action="/book" method="get">
+        <button class="btn btn-info row" type="submit">Create an appointment</button>
+        </form>
+        {% endif %}
+    </div>
